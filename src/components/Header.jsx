@@ -21,15 +21,16 @@ function Header({ activeHeading }) {
   const { products } = useSelector((state) => state.product);
   const { cart } = useSelector((state) => state.cart);
   const { wishlist } = useSelector((state) => state.wishlist);
+  const { isAuthenticated, user } = useSelector((state) => state.user);
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const [searchData, setSearchData] = useState(null);
   const [activeScroll, setActiveScroll] = useState(false);
   const [dropdown, setDropdown] = useState(false);
-  const { isAuthenticated, user } = useSelector((state) => state.user);
   const [openCart, setOpenCart] = useState(false);
   const [openWishlist, setOpenWishlist] = useState(false);
   const [open, setOpen] = useState(false);
+  
   const handleSearchChange = (e) => {
     const productData = products.length > 0 && products;
     const term = e.target.value.trim();
@@ -44,6 +45,7 @@ function Header({ activeHeading }) {
 
     setSearchData(filterProducts);
   };
+
 
   window.addEventListener("scroll", () => {
     setActiveScroll(window.scrollY > 150 ? true : false);
@@ -61,13 +63,13 @@ function Header({ activeHeading }) {
             </Link>
           </div>
           {/* search box */}
-          <div className="w-[50%] relative">
+          <div className="w-[40%] relative">
             <input
               type="text"
               placeholder="What are products you looking for today"
               value={searchTerm}
               onChange={handleSearchChange}
-              className="h-[40px] w-full px-2 border-[#3957db] border-[1px] rounded-md "
+              className="h-[40px] w-full px-2 focus:border-[#3957db] border-[1px] rounded-md "
             />
             <AiOutlineSearch
               size={30}
@@ -91,7 +93,7 @@ function Header({ activeHeading }) {
                           <img
                             src={i?.images[0]}
                             alt=""
-                            className="w-[50px] h-[40px] mr-[10px] object-contain"
+                            className="w-[40px] h-[40px] mr-[10px] object-contain"
                           />
                           <h1 className="">{i?.name}</h1>
                         </div>
@@ -183,9 +185,9 @@ function Header({ activeHeading }) {
                 {isAuthenticated ? (
                   <Link to="/profile">
                     <img
-                      src={user.avatar}
+                      src={user?.avatar}
                       alt=""
-                      className="w-[40px] h-[40px] rounded-full object-cover"
+                      className="w-[50px] h-[50px] rounded-full object-cover"
                     />
                   </Link>
                 ) : (
@@ -317,7 +319,7 @@ function Header({ activeHeading }) {
               <div
                 className={`${styles.button} ml-4 !rounded-[4px] bg-[#3957db] mt-10`}
               >
-                <Link to="/shop-create">
+                <Link to="/register-seller">
                   <h1 className="text-[#fff] flex items-center">
                     Become Seller <IoIosArrowForward className="ml-1" />
                   </h1>
@@ -328,7 +330,7 @@ function Header({ activeHeading }) {
                   <div>
                     <Link to="/profile">
                       <img
-                        src={user.avatar}
+                        src={user?.avatar}
                         alt=""
                         className="w-[80px] h-[80px] rounded-full border-[3px] border-[#0eae88]"
                       />

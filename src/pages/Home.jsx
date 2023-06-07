@@ -14,12 +14,18 @@ import {
 import { useNavigate } from "react-router-dom";
 import { getProductHome } from "../redux/actions/product";
 import { getEventHome } from "../redux/actions/event";
+import { clearError } from "../redux/actions/user";
 const Home = () => {
   const navigate = useNavigate();
-  const { loading, error } = useSelector((state) => state.user);
+  const { loading, error, isAuthenticated } = useSelector(
+    (state) => state.user
+  );
   const dispatch = useDispatch();
   useEffect(() => {
-    if (error) navigate("/login");
+    if (error && isAuthenticated) {
+      navigate("/login");
+      dispatch(clearError());
+    }
   }, [error]);
 
   useEffect(() => {

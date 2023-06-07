@@ -54,12 +54,12 @@ input[type=number] {
   --secondary: #3957db;
 }
 
-.detailCard {
+.detailCard.select {
   scrollbar-width: thin;
   scrollbar-color: var(--secondary) var(--primary);
 }
 
-.detailCard {
+.detailCard.select {
   scrollbar-width: thin;
   scrollbar-color: var(--secondary) var(--primary);
   display: block;
@@ -82,5 +82,37 @@ input[type=number] {
   border: 3px solid var(--primary);
   display: block;
   min-height: 40px;
+
+}
+
+
+.select {
+  scrollbar-width: thin;
+  scrollbar-color: var(--secondary) var(--primary);
+}
+
+.select {
+  scrollbar-width: thin;
+  scrollbar-color: var(--secondary) var(--primary);
+  display: block;
+
+}
+
+/* Chrome, Edge, and Safari */
+.select::-webkit-scrollbar {
+  width: 7px;
+}
+
+.select::-webkit-scrollbar-track {
+  background: var(--primary);
+  /* border-radius: 5px; */
+}
+
+.select::-webkit-scrollbar-thumb {
+  background-color: var(--secondary);
+  border-radius: 999px;
+  border: 3px solid var(--primary);
+  display: block;
+  min-height: 50%;
 
 }

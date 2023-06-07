@@ -18,3 +18,4 @@ export { default as AdminDashboardPage } from "./admin/AdminDashboardPage";
 export { default as ShopAllProduct } from "./shop/ShopAllProduct";
 export { default as ShopCreateEvent } from "./shop/ShopCreateEvent";
 export { default as ShopAllCoupon } from "./shop/ShopAllCoupon";
+export { default as PaymentPage } from "./PaymentPage";

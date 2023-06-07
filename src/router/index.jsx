@@ -20,6 +20,7 @@ import {
   ShopAllProduct,
   ShopCreateEvent,
   ShopAllCoupon,
+  PaymentPage,
 } from "../pages";
 import "react-toastify/dist/ReactToastify.css";
 import ProtectedRoute, { ProtectedSellerRoute } from "./ProtectedRoute";
@@ -47,6 +48,11 @@ export default createBrowserRouter([
       {
         path: "/products",
         element: <ProductPage />,
+      },
+
+      {
+        path: "/checkout",
+        element: <PaymentPage />,
       },
       {
         path: "/dashboard-create-product",

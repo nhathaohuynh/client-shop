@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AiOutlineDelete, AiOutlineEye } from "react-icons/ai";
-import { Button } from "@material-ui/core";
+import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import { DataGrid } from "@mui/x-data-grid";
 import Loading from "../Loading";

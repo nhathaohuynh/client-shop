@@ -7,7 +7,6 @@ const ErrorPage = () => {
   return (
     <div>
       <Error />
-      <Footer />
     </div>
   );
 };

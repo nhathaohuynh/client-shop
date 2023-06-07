@@ -5,10 +5,9 @@ import { RxCross1 } from "react-icons/rx";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "../../styles/style";
 import Loading from "../Loading";
-import { server } from "../../server";
 import { toast } from "react-toastify";
 import { DataGrid } from "@mui/x-data-grid";
-import { Button } from "@material-ui/core";
+import { Button } from "@mui/material";
 import { getAllProducts } from "../../redux/actions/product";
 
 const AllCoupon = () => {
@@ -37,6 +36,7 @@ const AllCoupon = () => {
         setCoupouns(res.data.coupons);
       })
       .catch((error) => {
+        console.log(error);
         setIsLoading(false);
       });
   }, [dispatch]);
@@ -44,7 +44,7 @@ const AllCoupon = () => {
   const handleDelete = async (id) => {
     instance
       .delete(`/coupon/deleteCoupon/${id}`, { withCredentials: true })
-      .then((res) => {
+      .then(() => {
         toast.success("Coupon code deleted succesfully!");
       });
     window.location.reload();
@@ -65,7 +65,7 @@ const AllCoupon = () => {
         },
         { withCredentials: true }
       )
-      .then((res) => {
+      .then(() => {
         toast.success("Coupon code created successfully!");
         setOpen(false);
         window.location.reload();

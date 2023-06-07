@@ -34,3 +34,5 @@ export { default as GetAllProduct } from "./Shop/GetAllProduct";
 export { default as GetAllEvent } from "./Shop/GetAllEvent";
 export { default as CreateEvent } from "./Shop/CreateEvent";
 export { default as AllCoupon } from "./Shop/AllCoupon";
+export { default as Checkout } from "./Checkout";
+export { default as CheckoutDetail } from "./CheckoutDetail";
